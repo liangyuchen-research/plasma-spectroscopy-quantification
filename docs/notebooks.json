@@ -3,141 +3,120 @@
     "path": "notebooks/baselines/ann_copper.ipynb",
     "source_id": "P1-001",
     "original_code_cells": 15,
-    "external_inputs": [
-      "test_long.csv"
-    ]
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/wastewater/ann_copper_wastewater.ipynb",
     "source_id": "P1-002",
     "original_code_cells": 13,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/wastewater/ann_nickel_wastewater.ipynb",
     "source_id": "P1-003",
     "original_code_cells": 13,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/baselines/ann_nickel.ipynb",
     "source_id": "P1-004",
     "original_code_cells": 13,
-    "external_inputs": []
-  },
-  {
-    "path": "notebooks/baselines/cnn_copper.ipynb",
-    "source_id": "P1-005",
-    "original_code_cells": 17,
-    "external_inputs": [
-      "online_testing_long_ontime.csv",
-      "test_short.csv"
-    ]
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/wastewater/cnn_copper_wastewater.ipynb",
     "source_id": "P1-006",
     "original_code_cells": 13,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/baselines/cnn_nickel.ipynb",
     "source_id": "P1-007",
     "original_code_cells": 17,
-    "external_inputs": [
-      "test_long.csv"
-    ]
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 16
   },
   {
     "path": "notebooks/wastewater/cnn_nickel_wastewater.ipynb",
     "source_id": "P1-008",
     "original_code_cells": 13,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/baselines/cnn_zinc.ipynb",
     "source_id": "P1-009",
     "original_code_cells": 17,
-    "external_inputs": [
-      "test_short.csv"
-    ]
-  },
-  {
-    "path": "notebooks/explainability/tct_copper_online_occlusion.ipynb",
-    "source_id": "P1-022",
-    "original_code_cells": 23,
-    "external_inputs": [
-      "online_testing_long_ontime.csv"
-    ]
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 15
   },
   {
     "path": "notebooks/explainability/tct_copper_occlusion_gradcam_shap.ipynb",
     "source_id": "P1-023",
     "original_code_cells": 19,
-    "external_inputs": []
-  },
-  {
-    "path": "notebooks/transfer/tct_nickel_transfer.ipynb",
-    "source_id": "P1-024",
-    "original_code_cells": 20,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 20
   },
   {
     "path": "notebooks/explainability/tct_nickel_occlusion.ipynb",
     "source_id": "P1-025",
     "original_code_cells": 15,
-    "external_inputs": []
-  },
-  {
-    "path": "notebooks/transfer/tct_lead_transfer.ipynb",
-    "source_id": "P1-026",
-    "original_code_cells": 19,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 16
   },
   {
     "path": "notebooks/explainability/tct_lead.ipynb",
     "source_id": "P1-027",
     "original_code_cells": 14,
-    "external_inputs": [
-      "test_short.csv"
-    ]
-  },
-  {
-    "path": "notebooks/transfer/tct_zinc_transfer.ipynb",
-    "source_id": "P1-028",
-    "original_code_cells": 19,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 13
   },
   {
     "path": "notebooks/explainability/tct_zinc.ipynb",
     "source_id": "P1-029",
     "original_code_cells": 14,
-    "external_inputs": [
-      "test_short.csv"
-    ]
-  },
-  {
-    "path": "notebooks/experimental/time_series_transformer_prototype.ipynb",
-    "source_id": "P1-032",
-    "original_code_cells": 2,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 12
   },
   {
     "path": "notebooks/wastewater/tct_copper_wastewater.ipynb",
     "source_id": "P1-033",
     "original_code_cells": 14,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 15
   },
   {
     "path": "notebooks/baselines/tct_nickel.ipynb",
     "source_id": "P1-034",
     "original_code_cells": 13,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 14
   },
   {
     "path": "notebooks/wastewater/tct_nickel_wastewater.ipynb",
     "source_id": "P1-035",
     "original_code_cells": 14,
-    "external_inputs": []
+    "external_inputs": [],
+    "available_in_public_repository": true,
+    "public_code_cells": 15
   }
 ]
