@@ -2,6 +2,12 @@
 
 Machine learning for estimating dissolved metal concentrations from optical emission spectra of plasmas in liquids. The experiments compare dense neural networks, one-dimensional convolutional networks, and a convolutional Transformer for Cu, Ni, Pb, and Zn, with spectral occlusion analysis, transfer learning, and wastewater evaluation.
 
+## Publication
+
+Chen, L.-Y., Wang, C.-Y., and Hsu, C.-C. Machine Learning-Based System for Online Quantitative Monitoring of Heavy Metals Across Different Aqueous Matrices Using Spectroscopy of Plasmas in Liquids. *Talanta* **297** (2026), 128652. [DOI: 10.1016/j.talanta.2025.128652](https://doi.org/10.1016/j.talanta.2025.128652).
+
+The related [GAN spectral-restoration project](https://github.com/liangyuchen-research/conditional-gan-spectral-restoration) covers restoration before downstream quantification. The regression and occlusion-analysis implementations are maintained in this repository.
+
 ## Research components
 
 - **Spectral regression:** ANN, CNN, and convolutional Transformer models implemented in TensorFlow/Keras.
