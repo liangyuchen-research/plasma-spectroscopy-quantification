@@ -1,0 +1,359 @@
+[
+  {
+    "source_id": "P1-001",
+    "repository_path": "notebooks/baselines/ann_copper.ipynb",
+    "source_bytes": 4015527,
+    "source_sha256": "6ed8edc55a44ef2bbe929bfd54cf39175b59087d3bf563e5a125e083b116b508",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-002",
+    "repository_path": "notebooks/wastewater/ann_copper_wastewater.ipynb",
+    "source_bytes": 3018583,
+    "source_sha256": "c173f5e12163dfa566347bef9ce189a1f9685d016f00b580f1537d063313d1d9",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-003",
+    "repository_path": "notebooks/wastewater/ann_nickel_wastewater.ipynb",
+    "source_bytes": 3280282,
+    "source_sha256": "0624124d9836ec559a5f705bb29b816906f238563ab9abcc2708343f0963d0e1",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-004",
+    "repository_path": "notebooks/baselines/ann_nickel.ipynb",
+    "source_bytes": 2551331,
+    "source_sha256": "707d7e9ed3366617129becdd09cbcd2b3d6b48a4a62a4c8646b0d46a6cc1a728",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-005",
+    "repository_path": "notebooks/baselines/cnn_copper.ipynb",
+    "source_bytes": 74971,
+    "source_sha256": "e5f2d8e128cbc20cf5194cbbe609cbe35a62a9abd0e02384bac2089c659a1a0b",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-006",
+    "repository_path": "notebooks/wastewater/cnn_copper_wastewater.ipynb",
+    "source_bytes": 3019106,
+    "source_sha256": "2056764e98e3e24d922a9db0d424512e97d3728e3bb8b0fe5cd366eac8a2d070",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-007",
+    "repository_path": "notebooks/baselines/cnn_nickel.ipynb",
+    "source_bytes": 4648297,
+    "source_sha256": "4efaedbd612893c605d0b2f44b221736e3f680e92c0131a573531538fcc30b17",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-008",
+    "repository_path": "notebooks/wastewater/cnn_nickel_wastewater.ipynb",
+    "source_bytes": 3019017,
+    "source_sha256": "d34a33718ed99989c5fc34151d2b65e95d541f2e6fdbfc31d216e868583ceac7",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-009",
+    "repository_path": "notebooks/baselines/cnn_zinc.ipynb",
+    "source_bytes": 2456431,
+    "source_sha256": "ef3d93ce494e8b97759da1cda1bfa29cf574f76cc92c3fe87e1f13e1322b9ad6",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-010",
+    "repository_path": "artifacts/checkpoints/Cu_ANN.h5",
+    "source_bytes": 2996464,
+    "source_sha256": "da53698bc551bdaa1f0505c0b0e7fac19e8cfa287514f50ceed2df6537254fb0",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-011",
+    "repository_path": "artifacts/training_histories/Cu_ANN.npy",
+    "source_bytes": 196128,
+    "source_sha256": "62a2cdf8835f59ea11088701988552c12e60378208727d044e8cdce34b86be20",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-012",
+    "repository_path": "artifacts/checkpoints/Cu_CNN.h5",
+    "source_bytes": 10296832,
+    "source_sha256": "b2d14826b66557c666a6bd26916e1cbe17173c25db559fa4728e60b8a0e1dbf5",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-013",
+    "repository_path": "artifacts/training_histories/Cu_CNN.npy",
+    "source_bytes": 222560,
+    "source_sha256": "0fabb35e52198b45267c96bfc17a0f5946cb3245fcdc263e7d87dcdf7214b441",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-014",
+    "repository_path": "artifacts/checkpoints/Cu_Transfer.h5",
+    "source_bytes": 5661016,
+    "source_sha256": "154076e7f1f6bdfe742e9344c79629338f0062798accadccbe2731bf027058de",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-015",
+    "repository_path": "artifacts/training_histories/Cu_Transfer.npy",
+    "source_bytes": 207584,
+    "source_sha256": "39c1a39cda1a1e26a7e4ff9436c0f72f9eaa3d5f7ddc4d7e32aa97b75f9dc203",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-016",
+    "repository_path": "data/spectra/mean_groups_of_3_long_ontime_testing.csv",
+    "source_bytes": 2271535,
+    "source_sha256": "86a7ad890bb32842944347d2947dbd3d72a2266f928bcdea2536e225aa3ee283",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-017",
+    "repository_path": "data/spectra/mean_groups_of_3_long_ontime_training.csv",
+    "source_bytes": 2722184,
+    "source_sha256": "13c9738fe4510f4c292da873797cd75981b679429cd3bd0bb23e18097ca80de4",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-018",
+    "repository_path": "data/spectra/mean_groups_of_3_short_ontime_testing.csv",
+    "source_bytes": 2271622,
+    "source_sha256": "2041727025cda8e87d198e3ac1246527ca1450e766ca0e643422500df3116faf",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-019",
+    "repository_path": "data/spectra/mean_groups_of_3_short_ontime_training.csv",
+    "source_bytes": 2722786,
+    "source_sha256": "7ad7ac4e7db27085cf3fa33c13bdeb9c8ae30727ca920f92aaf12aa70171a68f",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-020",
+    "repository_path": "artifacts/training_histories/Ni.npy",
+    "source_bytes": 70432,
+    "source_sha256": "dd07374e72e378e876b5b214181724a6ff7678c049376e8acdaf8c095b42b01e",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-021",
+    "repository_path": "artifacts/training_histories/Ni_Transfer_Updated.npy",
+    "source_bytes": 9792,
+    "source_sha256": "67c5804fdefd7ff38b435c978c265d4d17395fdb5d629145f169e697a7599f52",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-022",
+    "repository_path": "notebooks/explainability/tct_copper_online_occlusion.ipynb",
+    "source_bytes": 836019,
+    "source_sha256": "abdb721fae7712633174cc898c468f457ef5fbc1325e7be2941db6e3d202d5dd",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-023",
+    "repository_path": "notebooks/explainability/tct_copper_occlusion_gradcam_shap.ipynb",
+    "source_bytes": 1251598,
+    "source_sha256": "ebcdfa44360cb2e38c64865f7fbecd6e43f4449d4506116f61afc15292a43639",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-024",
+    "repository_path": "notebooks/transfer/tct_nickel_transfer.ipynb",
+    "source_bytes": 327884,
+    "source_sha256": "87cdc76ebc88095aa879a0d89e46a2db7f3a2476d37cc85e64d9c497a9a25457",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-025",
+    "repository_path": "notebooks/explainability/tct_nickel_occlusion.ipynb",
+    "source_bytes": 759633,
+    "source_sha256": "2b1e1e6efdfb6cd5f66df6015e657a1ade469ad9abae954289714bdb608a90ed",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-026",
+    "repository_path": "notebooks/transfer/tct_lead_transfer.ipynb",
+    "source_bytes": 279851,
+    "source_sha256": "f3dce4da884fbd8a6eec2df014816184aae2047e77e94571cb4474752e111df1",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-027",
+    "repository_path": "notebooks/explainability/tct_lead.ipynb",
+    "source_bytes": 281585,
+    "source_sha256": "909514399c100bcc8e9b9987e5f71b368e076007a09380c448bc0ec731b3af64",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-028",
+    "repository_path": "notebooks/transfer/tct_zinc_transfer.ipynb",
+    "source_bytes": 277239,
+    "source_sha256": "196fc12b1f5855ee31d8831459e871a282d6087886c1a0213e05facf69930e6f",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-029",
+    "repository_path": "notebooks/explainability/tct_zinc.ipynb",
+    "source_bytes": 928903,
+    "source_sha256": "ce40d290b0d135235bc25ac5b4879b064ed6e734e4b534e6e5b5900bda9692e5",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-030",
+    "repository_path": "artifacts/training_histories/Pb.npy",
+    "source_bytes": 23616,
+    "source_sha256": "6b37528c7f0687f79fd2af347c66b9ed854b501195c3ee8ba86441508e847e9b",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-031",
+    "repository_path": "artifacts/training_histories/Pb_Transfer_Updated.npy",
+    "source_bytes": 3328,
+    "source_sha256": "d73716154dd1d7615a87deb859a0d8beb631b3e8a3f9f88ac6d55e71816b4f5d",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-032",
+    "repository_path": "notebooks/experimental/time_series_transformer_prototype.ipynb",
+    "source_bytes": 11383,
+    "source_sha256": "ffb610b2c51d6b14db983f4ff113bb581f1f635b282b51c4f1333dbc2136557a",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-033",
+    "repository_path": "notebooks/wastewater/tct_copper_wastewater.ipynb",
+    "source_bytes": 1705038,
+    "source_sha256": "d545a54c90aa68859e7304bc519c818b6945e59b88c4bf1115df699ce160cfe5",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-034",
+    "repository_path": "notebooks/baselines/tct_nickel.ipynb",
+    "source_bytes": 165005,
+    "source_sha256": "04ea56e3599d0dc17818151f3aa4a3cce17b96464bb664897829696738ffd49e",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-035",
+    "repository_path": "notebooks/wastewater/tct_nickel_wastewater.ipynb",
+    "source_bytes": 1439784,
+    "source_sha256": "ee2dbef66b69374ce5b3a3c504b177d6b7bc1400dfd0a944efc4f2dde00a682c",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-036",
+    "repository_path": "artifacts/training_histories/Zn.npy",
+    "source_bytes": 34848,
+    "source_sha256": "fe96c63b5b3d49552fea68ba43ed35a452c6b07ac90aeefa0e19b7d5303bcbeb",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-037",
+    "repository_path": "artifacts/training_histories/Zn_Transfer_Updated.npy",
+    "source_bytes": 2400,
+    "source_sha256": "f5308d5a03596d141da28f2b04f307c0b8076faf58abbaa32db889e7d972498e",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-038",
+    "repository_path": "data/spectra/recollected_testing.csv",
+    "source_bytes": 4942649,
+    "source_sha256": "97299d1a6c88feb81fd171c1ce7982fa0b4a4222fb98976a901c4d6bde42fe3f",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-039",
+    "repository_path": "data/spectra/recollected_training.csv",
+    "source_bytes": 8461807,
+    "source_sha256": "cb6522692d76fd5eda615888af26862acd634d212cae9e40cb77b63c77b2043a",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-040",
+    "repository_path": "data/spectra/wastewater_combined.csv",
+    "source_bytes": 4238721,
+    "source_sha256": "3e5880c7d7117f1c5db3d0def1caf8a3501932ca7c6178e1fdd3f1fa46c53d33",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-041",
+    "repository_path": "data/spectra/testing_data_all_ontime.csv",
+    "source_bytes": 13566512,
+    "source_sha256": "aeb070f36c95d34ee511a13acd1804c09928cc1c268531e906d0e3ab5ead5387",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-042",
+    "repository_path": "data/spectra/testing_data_long_ontime.csv",
+    "source_bytes": 6790960,
+    "source_sha256": "f70579a03e461bdf62ad8fe192c0bf8a11a76df831e5b7468c9a5d43c1a59946",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-043",
+    "repository_path": "data/spectra/testing_data_short_ontime.csv",
+    "source_bytes": 6790893,
+    "source_sha256": "2f33f38d046bc9bd32c34696b89607b494d62e4ad393a9c92f02b235de148daf",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-044",
+    "repository_path": "data/spectra/training_data_all_ontime.csv",
+    "source_bytes": 16273254,
+    "source_sha256": "4a33f10470049f97136f7657ed86556715e4011ae70cb1e660031654d64711a9",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-045",
+    "repository_path": "data/spectra/training_data_long_ontime.csv",
+    "source_bytes": 8145804,
+    "source_sha256": "63dead49590dd8bd03ee7f6191d717fa9a9e6841affebbf64dc128c4854ee008",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-046",
+    "repository_path": "data/spectra/training_data_short_ontime.csv",
+    "source_bytes": 8144951,
+    "source_sha256": "45f89111ec71531d76b1e9bffdebecbb28b53e557b35751d56b4c852080cbd3b",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-047",
+    "repository_path": "data/regression/nickel_regression_results.csv",
+    "source_bytes": 201,
+    "source_sha256": "6e231f3ecf847add26e8761420524196ed6710722555844e33da96963aaf548e",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-048",
+    "repository_path": "data/regression/copper_regression_results.csv",
+    "source_bytes": 725,
+    "source_sha256": "80ccf9b671481a617eabe4d6f008a6942d3098bb8fb1f61413ff370c2575be55",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-049",
+    "repository_path": "scripts/plot_regression_relative_error.py",
+    "source_bytes": 2230,
+    "source_sha256": "7279196d2a065a237a7fbbd0ff12b1a6ecdace8929cc36abd0eecad39618abff",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  },
+  {
+    "source_id": "P1-050",
+    "repository_path": "data/regression/multivariate_regression.csv",
+    "source_bytes": 26006,
+    "source_sha256": "dcb879a23ba560a79c33a5c22b482222decb564c7a62d71eae639df8ba0ebfa2",
+    "transformation": "Exact byte-for-byte copy with an English path"
+  },
+  {
+    "source_id": "P1-051",
+    "repository_path": "scripts/multivariate_regression.py",
+    "source_bytes": 5493,
+    "source_sha256": "82916dfe30d4d32920a33c931eb9fabf6f4d1b15a2d175e19112dda4f6f68dfa",
+    "transformation": "English translation, portable paths, output clearing, and metadata cleanup"
+  }
+]

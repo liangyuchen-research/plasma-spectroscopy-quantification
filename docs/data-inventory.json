@@ -1,0 +1,114 @@
+[
+  {
+    "path": "data/spectra/mean_groups_of_3_long_ontime_testing.csv",
+    "rows": 100,
+    "columns": 1905,
+    "sha256": "86a7ad890bb32842944347d2947dbd3d72a2266f928bcdea2536e225aa3ee283",
+    "bytes": 2271535
+  },
+  {
+    "path": "data/spectra/mean_groups_of_3_long_ontime_training.csv",
+    "rows": 120,
+    "columns": 1905,
+    "sha256": "13c9738fe4510f4c292da873797cd75981b679429cd3bd0bb23e18097ca80de4",
+    "bytes": 2722184
+  },
+  {
+    "path": "data/spectra/mean_groups_of_3_short_ontime_testing.csv",
+    "rows": 100,
+    "columns": 1905,
+    "sha256": "2041727025cda8e87d198e3ac1246527ca1450e766ca0e643422500df3116faf",
+    "bytes": 2271622
+  },
+  {
+    "path": "data/spectra/mean_groups_of_3_short_ontime_training.csv",
+    "rows": 120,
+    "columns": 1905,
+    "sha256": "7ad7ac4e7db27085cf3fa33c13bdeb9c8ae30727ca920f92aaf12aa70171a68f",
+    "bytes": 2722786
+  },
+  {
+    "path": "data/spectra/recollected_testing.csv",
+    "rows": 210,
+    "columns": 1986,
+    "sha256": "97299d1a6c88feb81fd171c1ce7982fa0b4a4222fb98976a901c4d6bde42fe3f",
+    "bytes": 4942649
+  },
+  {
+    "path": "data/spectra/recollected_training.csv",
+    "rows": 360,
+    "columns": 1986,
+    "sha256": "cb6522692d76fd5eda615888af26862acd634d212cae9e40cb77b63c77b2043a",
+    "bytes": 8461807
+  },
+  {
+    "path": "data/spectra/wastewater_combined.csv",
+    "rows": 180,
+    "columns": 1986,
+    "sha256": "3e5880c7d7117f1c5db3d0def1caf8a3501932ca7c6178e1fdd3f1fa46c53d33",
+    "bytes": 4238721
+  },
+  {
+    "path": "data/spectra/testing_data_all_ontime.csv",
+    "rows": 600,
+    "columns": 1912,
+    "sha256": "aeb070f36c95d34ee511a13acd1804c09928cc1c268531e906d0e3ab5ead5387",
+    "bytes": 13566512
+  },
+  {
+    "path": "data/spectra/testing_data_long_ontime.csv",
+    "rows": 300,
+    "columns": 1912,
+    "sha256": "f70579a03e461bdf62ad8fe192c0bf8a11a76df831e5b7468c9a5d43c1a59946",
+    "bytes": 6790960
+  },
+  {
+    "path": "data/spectra/testing_data_short_ontime.csv",
+    "rows": 300,
+    "columns": 1912,
+    "sha256": "2f33f38d046bc9bd32c34696b89607b494d62e4ad393a9c92f02b235de148daf",
+    "bytes": 6790893
+  },
+  {
+    "path": "data/spectra/training_data_all_ontime.csv",
+    "rows": 720,
+    "columns": 1912,
+    "sha256": "4a33f10470049f97136f7657ed86556715e4011ae70cb1e660031654d64711a9",
+    "bytes": 16273254
+  },
+  {
+    "path": "data/spectra/training_data_long_ontime.csv",
+    "rows": 360,
+    "columns": 1912,
+    "sha256": "63dead49590dd8bd03ee7f6191d717fa9a9e6841affebbf64dc128c4854ee008",
+    "bytes": 8145804
+  },
+  {
+    "path": "data/spectra/training_data_short_ontime.csv",
+    "rows": 360,
+    "columns": 1912,
+    "sha256": "45f89111ec71531d76b1e9bffdebecbb28b53e557b35751d56b4c852080cbd3b",
+    "bytes": 8144951
+  },
+  {
+    "path": "data/regression/nickel_regression_results.csv",
+    "rows": 2,
+    "columns": 4,
+    "sha256": "6e231f3ecf847add26e8761420524196ed6710722555844e33da96963aaf548e",
+    "bytes": 201
+  },
+  {
+    "path": "data/regression/copper_regression_results.csv",
+    "rows": 10,
+    "columns": 5,
+    "sha256": "80ccf9b671481a617eabe4d6f008a6942d3098bb8fb1f61413ff370c2575be55",
+    "bytes": 725
+  },
+  {
+    "path": "data/regression/multivariate_regression.csv",
+    "rows": 460,
+    "columns": 6,
+    "sha256": "dcb879a23ba560a79c33a5c22b482222decb564c7a62d71eae639df8ba0ebfa2",
+    "bytes": 26006
+  }
+]

@@ -1,0 +1,12 @@
+# Inferred compatibility environment; original experiments did not include a lockfile.
+# Python 3.10 or 3.11. Full neural training has not been rerun in this environment.
+numpy>=1.23.5,<2
+pandas>=1.5,<3
+scipy>=1.10,<2
+matplotlib>=3.6,<4
+scikit-learn>=1.2,<2
+tensorflow>=2.15,<2.16
+keras>=2.15,<2.16
+h5py>=3.8,<4
+nbformat>=5.7,<6
+jupyterlab>=4,<5

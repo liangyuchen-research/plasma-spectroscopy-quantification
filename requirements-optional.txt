@@ -1,0 +1,5 @@
+# Only needed for the SHAP notebook and the experimental PyTorch prototype.
+-r requirements.txt
+shap>=0.41,<1
+torch>=2,<3
+transformers>=4,<5
