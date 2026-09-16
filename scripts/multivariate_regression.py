@@ -10,12 +10,11 @@ REPOSITORY_ROOT = next(
 )
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
-from research_paths import data_file, external_file, checkpoint_file, history_file, output_file
+from research_paths import data_file, output_file
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
@@ -24,8 +23,8 @@ new_data_path = data_file("regression/multivariate_regression.csv")
 new_data = pd.read_csv(new_data_path)
 
 # Split training concentrations (0, 5, 10, 20) and testing concentrations (7.5, 15)
-new_original_data = new_data[new_data["Cu"].isin([0, 5, 10, 20])]
-new_test_data = new_data[new_data["Cu"].isin([7.5, 15])]
+new_original_data = new_data.loc[new_data["Cu"].isin([0, 5, 10, 20])].copy()
+new_test_data = new_data.loc[new_data["Cu"].isin([7.5, 15])].copy()
 
 # Fit the regression model to the training observations
 X_train_new = new_original_data[["Conductivity", "Cu-327nm_predict"]]
@@ -95,9 +94,10 @@ x_mesh_new, y_mesh_new = np.meshgrid(
     conductivity_values,
     np.linspace(new_data["Cu-327nm_predict"].min(), new_data["Cu-327nm_predict"].max(), 10),
 )
-z_mesh_new = regressor_new.predict(np.c_[x_mesh_new.ravel(), y_mesh_new.ravel()]).reshape(
-    x_mesh_new.shape
+surface_features = pd.DataFrame(
+    {"Conductivity": x_mesh_new.ravel(), "Cu-327nm_predict": y_mesh_new.ravel()}
 )
+z_mesh_new = regressor_new.predict(surface_features).reshape(x_mesh_new.shape)
 
 # Create the three-dimensional plot
 fig = plt.figure(figsize=(10, 8))

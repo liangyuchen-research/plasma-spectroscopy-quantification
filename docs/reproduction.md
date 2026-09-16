@@ -39,18 +39,18 @@ Additional acquisition slots remain:
 
 The notebook catalog lists their consumers. Missing-input checks are local to the cells that use them, so the earlier supplied-data sections remain inspectable. Do not substitute one testing dataset for another solely because its column names or filename are similar.
 
-Standard raw tables have 1,912 columns, including metadata and wavelength columns. Most neural notebooks select exactly 1,862 spectral features from positions `18:1880`. Averaged tables contain 1,905 columns and have a different metadata offset. Preserve the original column order, duplicate placeholder column labels, row order, and per-notebook element masks. No numeric data cleaning was performed during packaging.
+Standard raw tables have 1,912 columns, including metadata and wavelength columns. Most neural notebooks select exactly 1,862 spectral features from positions `18:1880`. Averaged tables contain 1,905 columns and have a different metadata offset. Preserve the original column order, duplicate placeholder column labels, row order, and per-notebook element masks. The supplied numerical data are unchanged.
 
 ## Original experiment assumptions
 
 - Normalization commonly clips intensities at 60,000 and scales by 60,000. Some variants also zero predefined wavelength regions for other elements. These choices were retained.
 - Data splitting, seeds, losses, architectures, and training budgets remain as supplied. Several notebooks monitor a separately named testing dataset during training or use it for validation. Report those experiments as originally designed; their metrics should not be presented as fresh, untouched holdout performance.
 - Some older variants use unconventional variable names for `train_test_split` results. Their assignments and subsequent use were preserved to avoid silently changing the experiment.
-- The `tct_nickel` baseline contains a testing-preprocessing cell that clips `spectrum` rather than `spectrum_test`. This apparent source inconsistency was retained and should be reviewed before producing new results.
+- The `tct_nickel` testing-preprocessing cell now clips `spectrum_test` at 60,000 before normalization. The earlier assignment clipped the training array instead, leaving testing intensities unbounded. This correction affects new nickel runs; archived metrics and checkpoints have not been regenerated.
 - Several original filenames and output names use `Cu` even in other target-element experiments. Public notebook names identify the intended experiment, but preserved model and history filenames should not be treated as proof of the target or architecture.
 - The custom loss labeled SMAPE uses a different branch when the true concentration is zero. This is the implemented research loss, not an assertion of a universal metric definition.
 - The regression relative-error plot contains fixed comparison values from the original script. It does not automatically consume newly generated regression results.
-- Grad-CAM, SHAP, and the exploratory time-series Transformer depend on version-sensitive APIs. Their complete runtime has not been validated during packaging.
+- Grad-CAM, SHAP, and the exploratory time-series Transformer depend on version-sensitive APIs. Their complete runtime has not been validated.
 
 ## Environment and validation scope
 
@@ -62,8 +62,8 @@ The three supplied H5 files identify Keras **2.6.0** and the TensorFlow backend 
 
 The included validator checks Python syntax, notebook structure, cleared outputs, English-only text/path names, and the hashes of copied numerical data and artifacts. Dataset inspection verifies schema and row counts. These checks do not establish scientific reproducibility, classifier accuracy, checkpoint architecture compatibility, or the success of a full notebook run.
 
-## Curation record
+## Implementation notes
 
-All primary originals and the three supplemental inputs were copied into a private local archive and hashed before curation. One byte-identical copper notebook was represented once in the repository. The private duplicate ledger preserves the original mapping. The original notebook outputs, metadata, and filenames remain in that archive.
+Repository paths and environment variables replace workstation-specific paths. Generated model files are separated by experiment. Original numerical data and artifacts are unchanged and can be checked against the provenance ledger.
 
-Public copies have English filenames and comments, a short introductory cell, portable input paths, and experiment-specific output locations. Python source was formatted with Black, with AST equivalence checked before and after formatting. Numeric constants in all 317 original code cells were checked against the archived source. Credentials, private workstation paths, and customer names are not part of the public-facing path mapping. No authorship, publication identifier, license, or result was invented.
+The classical regression script uses explicit DataFrame copies and named features to avoid chained-assignment and feature-name warnings. It has been run against the included data with a noninteractive plotting backend. The nickel preprocessing correction described above is the only change to neural calculations; training splits, losses, hyperparameters, and archived results are unchanged.

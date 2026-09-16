@@ -1,71 +1,64 @@
 # Plasma Spectroscopy for Heavy Metal Quantification
 
-Research code for estimating dissolved metal concentrations from optical emission spectra of plasmas in liquids. The collection compares dense neural networks, one-dimensional convolutional networks, and a convolutional Transformer, with spectral occlusion analysis, transfer-learning experiments, and wastewater evaluation.
-
-The code combines machine learning with experimental spectroscopy: emission spectra are paired with concentration labels and acquisition metadata, then used to investigate prediction behavior across metal targets and solution conditions.
+Machine learning for estimating dissolved metal concentrations from optical emission spectra of plasmas in liquids. The experiments compare dense neural networks, one-dimensional convolutional networks, and a convolutional Transformer for Cu, Ni, Pb, and Zn, with spectral occlusion analysis, transfer learning, and wastewater evaluation.
 
 ## Research components
 
-- **Spectral regression:** TensorFlow/Keras ANN, CNN, and TCT experiments for copper, nickel, lead, and zinc. The TCT model combines one-dimensional convolutions with multi-head self-attention.
-- **Model interpretation:** sliding-window spectral occlusion, importance-weighted spectral visualizations, and copper experiments with Grad-CAM and SHAP.
-- **Transfer and wastewater experiments:** checkpoint-based fine-tuning for additional metal targets and evaluation on separately collected solution datasets.
-- **Classical baseline:** multivariate linear regression using conductivity and characteristic-line intensity estimates, plus concentration recovery and relative-error plots.
+- **Spectral regression:** ANN, CNN, and convolutional Transformer models implemented in TensorFlow/Keras.
+- **Model interpretation:** sliding-window occlusion identifies influential wavelength regions. Copper experiments also include Grad-CAM and SHAP.
+- **Transfer and wastewater evaluation:** checkpoint-based fine-tuning for additional metal targets and experiments on separately collected solution datasets.
+- **Classical calibration:** multivariate linear regression using conductivity and characteristic-line intensity estimates.
 
-This is a curated research snapshot. Algorithms, numerical datasets, and original experiment settings are preserved. Notebook outputs were cleared, comments were translated into English, and machine-specific paths were replaced with configurable repository paths. No new model performance claims are introduced.
+## Repository guide
 
-## Repository layout
+| Location | Contents |
+| --- | --- |
+| `notebooks/baselines/` | ANN, CNN, and convolutional Transformer experiments |
+| `notebooks/explainability/` | Spectral occlusion, Grad-CAM, and SHAP |
+| `notebooks/transfer/` | Checkpoint-based transfer between metal targets |
+| `notebooks/wastewater/` | Recollected-sample and wastewater experiments |
+| `notebooks/experimental/` | Exploratory time-series Transformer implementation |
+| `scripts/` | Regression, plotting, dataset inspection, and validation |
+| `data/` | Spectral tables, regression observations, and result tables |
+| `artifacts/` | Three Keras checkpoints and nine training-history arrays |
+| `docs/` | Experiment catalog, data inventory, and reproduction guide |
 
-```text
-notebooks/
-  baselines/       ANN, CNN, and TCT comparison notebooks
-  explainability/  Spectral occlusion, Grad-CAM, and SHAP experiments
-  transfer/        Checkpoint-based metal-target transfer experiments
-  wastewater/      Experiments using recollected and wastewater datasets
-  experimental/    Exploratory time-series Transformer prototype
-scripts/           Regression analysis, plotting, and lightweight validation
-data/
-  spectra/         Supplied spectral tables, including supplemental acquisitions
-  regression/      Regression observations and original result tables
-artifacts/
-  checkpoints/     Three original Keras H5 checkpoints
-  training_histories/  Original numerical NumPy arrays
-docs/              Data inventory, source hashes, and reproduction notes
-research_paths.py  Input resolution and per-experiment output locations
-```
+## Run the calibration baseline
 
-## Quick start
-
-Use a dedicated Python 3.10 or 3.11 environment. The TensorFlow 2.15/Keras 2.15 requirements are a compatibility starting point for the APIs in the notebooks, not a recovered lockfile from the original experiments.
+Use Python 3.10 or 3.11. Create a virtual environment and activate it with `.venv\Scripts\activate` on Windows or `source .venv/bin/activate` on macOS/Linux.
 
 ```bash
 python -m venv .venv
-python -m pip install -r requirements.txt
+# Activate the environment before continuing.
+python -m pip install -r requirements-analysis.txt
 python scripts/validate_repository.py
 python scripts/inspect_datasets.py
+python scripts/multivariate_regression.py
+```
+
+The regression script uses the included observations and exports concentration estimates to `outputs/multivariate_regression/copper_regression_results.csv`. It also displays the fitted calibration surface. For a headless session, set the `MPLBACKEND` environment variable to `Agg` before execution. `scripts/plot_regression_relative_error.py` displays a separate comparison based on recorded values.
+
+## Neural experiments
+
+```bash
+python -m pip install -r requirements.txt
 python -m jupyterlab
 ```
 
-Activate the environment before installing packages. Start JupyterLab from the repository root and select an individual notebook. Run the introductory configuration cell first. Review the training cell before execution: several preserved experiments allow tens of thousands of epochs.
+Start JupyterLab from the repository root, open an individual notebook, and run its configuration cell first. Review the training settings before execution: some experiments permit tens of thousands of epochs. The requirements target TensorFlow/Keras 2.15 compatibility; the original experiments did not include a complete environment lockfile. Optional explanation and prototype dependencies are listed in `requirements-optional.txt`.
 
-For a small non-neural baseline:
-
-```bash
-python scripts/multivariate_regression.py
-python scripts/plot_regression_relative_error.py
-```
-
-The first script writes a regenerated CSV under `outputs/multivariate_regression/`; the second reproduces the original hard-coded comparison plot. Plotting requires a graphical backend or an explicitly configured noninteractive Matplotlib backend.
+The standard combined spectral tables contain 720 training rows and 600 testing rows. They overlap with the separate long- and short-duration tables and must not be counted as additional independent observations. Most notebooks select 1,862 wavelength features from columns `18:1880`. Averaged tables use a different schema.
 
 ## Data and reproducibility
 
-The supplied standard spectral tables contain 720 training rows and 600 testing rows across both acquisition-duration groups. These combined tables overlap with the separate long- and short-duration files; they are not independent additional observations. Most notebooks use the 1,862 wavelength features at positional columns `18:1880`, together with the selected metal concentration label. The smaller averaged tables use a different schema and are not drop-in replacements.
+The calibration baseline has been run with the included data. Full neural training and checkpoint inference have not been rerun in the documented environment. Some experimental notebooks require additional acquisitions, and several original experiments use a testing dataset during training or validation. Their results require the corresponding protocol when interpreted.
 
-See [the reproduction guide](docs/reproduction.md) for external inputs, preprocessing assumptions, environment details, and known limitations. [The data inventory](docs/data-inventory.json) records exact row counts, sizes, and SHA-256 hashes. [The notebook catalog](docs/notebooks.json) identifies the notebooks that require additional acquisitions.
+The [reproduction guide](docs/reproduction.md) documents preprocessing, external inputs, checkpoint compatibility, and a corrected nickel testing-preprocessing assignment. The [data inventory](docs/data-inventory.json) records row counts and hashes, and the [notebook catalog](docs/notebooks.json) lists each experiment and its input requirements.
 
-The source labels TCT as `Temporal_Convolutional_Transformer`. ORSFE is retained as the original method identifier; this repository does not invent an expansion for that acronym. The implemented operation is described directly as spectral occlusion analysis.
+`TCT` is the original identifier for `Temporal_Convolutional_Transformer`. `ORSFE` is retained where it occurs in the source; the implemented operation is described here as spectral occlusion analysis.
 
-## Provenance and use
+## Data and code use
 
-The repository was prepared from the research files supplied by the author, with three exact-name supplemental datasets recovered from the related research directory. A complete private archive retains every original file, including the duplicate notebook and all original notebook outputs. [The provenance ledger](docs/provenance.json) records source hashes without exposing local workstation paths.
+This repository contains the research implementation and associated numerical data. The [provenance ledger](docs/provenance.json) records source hashes, and the [artifact notes](artifacts/README.md) describe the saved checkpoints. Original numerical data and model artifacts are unchanged.
 
-No software or dataset license was present in the supplied snapshot. No new license grant is asserted here. Existing code and scientific dependencies retain their respective rights and attribution. Publication metadata and a formal citation should be added only when verified against the final paper.
+No software or dataset license is included. Contact the repository owner regarding reuse or access to additional acquisitions. Existing third-party dependencies retain their respective licenses.
