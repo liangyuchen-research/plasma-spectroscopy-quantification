@@ -12,7 +12,6 @@ def main():
     )
     if str(REPOSITORY_ROOT) not in sys.path:
         sys.path.insert(0, str(REPOSITORY_ROOT))
-    from research_paths import data_file, external_file, checkpoint_file, history_file, output_file
 
     import matplotlib.pyplot as plt
     import numpy as np
