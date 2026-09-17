@@ -30,7 +30,7 @@ Several historical experiments monitor a dataset named testing during training o
 
 ## Source corrections and preserved variants
 
-- The nickel baseline clips its testing array before normalization; the source accidentally clipped the training array in that cell.
+- The nickel notebooks (`ann_nickel`, `cnn_nickel`, `tct_nickel_occlusion`, `tct_nickel_wastewater`) now clip their testing array before normalization; the source accidentally clipped the already-clipped training array in that cell, leaving saturated testing pixels (about 5-8 % of values) above the 60,000-count ceiling used for training. The duplicated seed-setting blocks were also collapsed into one block per notebook without changing the seeds.
 - The lead Transformer notebook consistently uses its constructed `TCT_Model` for callbacks, fitting, and saving instead of an undefined `ANN_Model`.
 - Optional tail sections requiring absent `test_long.csv` or `test_short.csv` acquisitions are retained in the private source archive. Public notebooks finish after their supplied-data experiment.
 - A copper CNN and an online copper-occlusion variant require a separate absent online acquisition. Their full copies remain private.
