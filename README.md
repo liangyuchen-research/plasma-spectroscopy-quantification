@@ -1,74 +1,90 @@
 # Plasma Spectroscopy for Heavy Metal Quantification
 
-Machine learning for estimating dissolved metal concentrations from optical emission spectra of plasmas in liquids. The experiments compare dense neural networks, one-dimensional convolutional networks, and a convolutional Transformer for Cu, Ni, Pb, and Zn, with spectral occlusion analysis, transfer learning, and wastewater evaluation.
+[![checks](https://github.com/liangyuchen-research/plasma-spectroscopy-quantification/actions/workflows/checks.yml/badge.svg)](https://github.com/liangyuchen-research/plasma-spectroscopy-quantification/actions/workflows/checks.yml)
 
-## Publication
+Machine learning that reads dissolved-metal concentrations (Cu, Ni, Pb, Zn) directly from the optical emission spectrum of a plasma in liquid. Dense, 1-D convolutional and convolutional-Transformer regressors are compared, interpreted with spectral occlusion analysis, and evaluated on separately collected solutions and industrial wastewater.
 
-Chen, L.-Y., Wang, C.-Y., and Hsu, C.-C. Machine Learning-Based System for Online Quantitative Monitoring of Heavy Metals Across Different Aqueous Matrices Using Spectroscopy of Plasmas in Liquids. *Talanta* **297** (2026), 128652. [DOI: 10.1016/j.talanta.2025.128652](https://doi.org/10.1016/j.talanta.2025.128652).
+Developed at the Plasma Engineering Laboratory, National Taiwan University (advisor: Prof. Cheng-Che Hsu). Published as:
 
-The related [GAN spectral-restoration project](https://github.com/liangyuchen-research/conditional-gan-spectral-restoration) covers restoration before downstream quantification. The regression and occlusion-analysis implementations are maintained in this repository.
+> L.-Y. Chen, C.-Y. Wang, C.-C. Hsu, *Machine learning-based system for online quantitative monitoring of heavy metals across different aqueous matrices using spectroscopy of plasmas in liquids*, **Talanta** 297 (2026) 128652. [doi:10.1016/j.talanta.2025.128652](https://doi.org/10.1016/j.talanta.2025.128652)
+
+The companion [spectral-restoration repository](https://github.com/liangyuchen-research/conditional-gan-spectral-restoration) covers GAN-based restoration of interfered spectra before quantification.
+
+## What the model learns
+
+![Occlusion importance over the emission spectrum](docs/figures/occlusion_importance.png)
+
+*Sliding-window occlusion importance (top strip) for the archived convolutional Transformer, evaluated on a 15 ppm Cu test spectrum. The prediction depends almost exclusively on the Cu I 324.75 / 327.40 nm doublet, which sits on the shoulder of the saturated OH band. Produced by `scripts/make_figures.py` from files in this repository.*
+
+<p align="center">
+  <img src="docs/figures/spectra_by_concentration.png" width="66%" alt="Mean spectra by Cu concentration and Cu-dependent difference spectra">
+  <img src="docs/figures/transformer_parity.png" width="32%" alt="Predicted versus reference Cu concentration">
+</p>
+
+*Left: mean spectra at 0–20 ppm Cu (3500 µS/cm) and the concentration-dependent signal after subtracting the 0 ppm mean. Right: archived Transformer checkpoint on the recollected dataset — 360 training spectra at 0/5/10/20 ppm and 210 test spectra at the unseen 7.5 and 15 ppm levels across five conductivities: MAE 1.44 ppm, MAPE 12.8 %. These numbers are recomputed here from the shipped checkpoint and CSV files; the paper reports the full evaluation.*
 
 ## Research components
 
-- **Spectral regression:** ANN, CNN, and convolutional Transformer models implemented in TensorFlow/Keras.
-- **Model interpretation:** sliding-window occlusion identifies influential wavelength regions. Copper experiments also include Grad-CAM and SHAP.
-- **Wastewater evaluation:** regression experiments on separately collected solution datasets and archived ANN, CNN, and Transformer checkpoints.
-- **Classical calibration:** multivariate linear regression using conductivity and characteristic-line intensity estimates.
+| Component | Where |
+| --- | --- |
+| Spectral regression — ANN, 1-D CNN and convolutional Transformer in TensorFlow/Keras, SMAPE loss, early stopping | `notebooks/baselines/` |
+| Model interpretation — sliding-window occlusion over wavelength (with Grad-CAM and SHAP for copper) | `notebooks/explainability/` |
+| Matrix robustness — recollected solutions at five conductivities and spiked industrial wastewater | `notebooks/wastewater/` |
+| Classical baseline — multivariate linear calibration from conductivity and characteristic-line intensities | `scripts/multivariate_regression.py` |
+| Figures for this page | `scripts/make_figures.py` |
+
+## Quick start
+
+Python 3.10–3.12. The calibration baseline and the figure script need only the analysis requirements; the notebooks need TensorFlow 2.16.2 with legacy Keras.
+
+```bash
+python -m venv .venv && source .venv/bin/activate      # .venv\Scripts\activate on Windows
+python -m pip install -r requirements-analysis.txt
+python scripts/validate_repository.py                  # structure, notebook syntax, data hashes
+python scripts/multivariate_regression.py              # classical baseline on the included data
+
+python -m pip install -r requirements.txt              # TensorFlow + legacy Keras
+python scripts/check_models.py --notebooks             # loads the checkpoints, runs each notebook to its first optimizer step
+python scripts/make_figures.py                         # regenerates docs/figures/
+python -m jupyterlab                                   # open a notebook and run its configuration cell first
+```
+
+Set `MPLBACKEND=Agg` for headless runs. Some notebooks are configured for tens of thousands of epochs; review the training settings before starting a run.
 
 ## Repository guide
 
 | Location | Contents |
 | --- | --- |
-| `notebooks/baselines/` | ANN, CNN, and convolutional Transformer experiments |
-| `notebooks/explainability/` | Spectral occlusion, Grad-CAM, and SHAP |
-| `notebooks/wastewater/` | Recollected-sample and wastewater experiments |
-| `scripts/` | Regression, plotting, dataset inspection, and validation |
-| `data/` | Spectral tables, regression observations, and result tables |
-| `artifacts/` | Three Keras checkpoints and nine training-history arrays |
-| `docs/` | Experiment catalog, data inventory, and reproduction guide |
+| `notebooks/` | 15 experiment notebooks (outputs cleared; see the [notebook catalog](docs/notebooks.json)) |
+| `scripts/` | Calibration baseline, dataset inspection, checkpoint/notebook checks, figure generation |
+| `data/spectra/` | Spectral tables: 1,862 wavelength columns (`18:1880`), metadata and per-line features |
+| `data/regression/` | Observations for the classical calibration |
+| `artifacts/` | Three Keras checkpoints (`Cu_ANN`, `Cu_CNN`, `Cu_Transfer`) and nine training histories |
+| `docs/` | [Reproduction guide](docs/reproduction.md), [data inventory](docs/data-inventory.json), [provenance ledger](docs/provenance.json) |
 
-## Run the calibration baseline
+`TCT` in the source is the original identifier of the convolutional Transformer (`Temporal_Convolutional_Transformer`); `ORSFE` is the original name of the occlusion analysis.
 
-Use Python 3.10–3.12. Create a virtual environment and activate it with `.venv\Scripts\activate` on Windows or `source .venv/bin/activate` on macOS/Linux.
+## Data and reproducibility notes
 
-```bash
-python -m venv .venv
-# Activate the environment before continuing.
-python -m pip install -r requirements-analysis.txt
-python scripts/validate_repository.py
-python scripts/inspect_datasets.py
-python scripts/multivariate_regression.py
+- The standard training/testing tables (720 and 600 rows) are unions of the long- and short-duration tables and must not be counted as independent observations.
+- Several original experiments monitored the testing set during training; interpret their recorded metrics under that protocol. The recollected dataset used for the parity plot above has fully unseen concentration levels.
+- `Cu_Transfer.h5` gives consistent predictions under the wastewater-notebook preprocessing (recollected data, Pb/Zn/Ni windows zeroed, clip and divide by 60,000) and is the checkpoint used for the figures. The `Cu_ANN` and `Cu_CNN` checkpoints load and predict, but the exact acquisition they were trained on is not part of this snapshot, so they are not plotted.
+- Full training, and the complete SHAP/Grad-CAM analyses, have not been rerun for this public copy. The [reproduction guide](docs/reproduction.md) lists every source correction made while preparing it.
+
+## Citation
+
+```bibtex
+@article{chen2026plasma,
+  title   = {Machine learning-based system for online quantitative monitoring of heavy metals across different aqueous matrices using spectroscopy of plasmas in liquids},
+  author  = {Chen, Liang-Yu and Wang, Ching-Yuan and Hsu, Cheng-Che},
+  journal = {Talanta},
+  volume  = {297},
+  pages   = {128652},
+  year    = {2026},
+  doi     = {10.1016/j.talanta.2025.128652}
+}
 ```
-
-The regression script uses the included observations and exports concentration estimates to `outputs/multivariate_regression/copper_regression_results.csv`. It also displays the fitted calibration surface. For a headless session, set the `MPLBACKEND` environment variable to `Agg` before execution. `scripts/plot_regression_relative_error.py` displays a separate comparison based on recorded values.
-
-## Neural experiments
-
-```bash
-python -m pip install -r requirements.txt
-python -m jupyterlab
-```
-
-Start JupyterLab from the repository root, open an individual notebook, and run its configuration cell first. Review the training settings before execution: some experiments permit tens of thousands of epochs. The requirements use TensorFlow 2.16.2 with legacy Keras 2.16. Notebook setup cells select the legacy runtime before importing TensorFlow. Optional SHAP dependencies are listed in `requirements-optional.txt`.
-
-The standard combined spectral tables contain 720 training rows and 600 testing rows. They overlap with the separate long- and short-duration tables and must not be counted as additional independent observations. Most notebooks select 1,862 wavelength features from columns `18:1880`. Averaged tables use a different schema.
-
-## Data and reproducibility
-
-The calibration baseline has been run with the included observations. The three archived checkpoints load and produce finite predictions. Every published notebook has passed supplied-data setup, model construction, and one bounded optimizer step without running its training loop.
-
-```bash
-python scripts/check_models.py --notebooks
-```
-
-These checks establish executable model setup, not reproduced scientific performance. Full neural training and the complete SHAP/Grad-CAM analyses have not been rerun. Several original experiments use a testing dataset during training or validation, so their results require the corresponding protocol when interpreted. Historical variants with unavailable acquisitions, incompatible transfer checkpoints, or an unfinished forecasting model remain in the private source archive.
-
-The [reproduction guide](docs/reproduction.md) documents preprocessing, compatibility, validation scope, and source corrections. The [data inventory](docs/data-inventory.json) records row counts and hashes, and the [notebook catalog](docs/notebooks.json) lists each experiment and its input requirements.
-
-`TCT` is the original identifier for `Temporal_Convolutional_Transformer`. `ORSFE` is retained where it occurs in the source; the implemented operation is described here as spectral occlusion analysis.
 
 ## Data and code use
 
-This repository contains the research implementation and associated numerical data. The [provenance ledger](docs/provenance.json) records source hashes, and the [artifact notes](artifacts/README.md) describe the saved checkpoints. Original numerical data and model artifacts are unchanged.
-
-No software or dataset license is included. Contact the repository owner regarding reuse or access to additional acquisitions. Existing third-party dependencies retain their respective licenses.
+The spectral data and checkpoints are provided so that the published analysis can be inspected and re-run; contact the repository owner for reuse beyond that or for additional acquisitions. Third-party dependencies retain their own licenses.
